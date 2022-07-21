@@ -6,29 +6,41 @@
                <v-flex xs12 sm8 md4>
                   <v-card class="elevation-12">
                      <v-toolbar dark color="primary">
-                        <v-toolbar-title>Faça seu login</v-toolbar-title>
+                        <v-toolbar-title>Vamos fazer o seu Cadrastro :)</v-toolbar-title>
                      </v-toolbar>
                      <v-card-text>
                         <v-form>
+                            <v-text-field
+                              name="email"
+                              label="E-mail"
+                              type="text"
+                           ></v-text-field>
                            <v-text-field
                               name="login"
-                              label="Username"
+                              label="Nome Completo"
+                              type="text"
+                           ></v-text-field>
+                            <v-text-field
+                              name="login"
+                              label="Telefone"
                               type="text"
                            ></v-text-field>
                            <v-text-field
                               id="password"
                               name="password"
-                              label="Password"
+                              label="Senha"
                               type="password"
+                           ></v-text-field>
+                            <v-text-field
+                              name="login"
+                              label="Cidade"
+                              type="text"
                            ></v-text-field>
                         </v-form>
                      </v-card-text>
                      <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" to="/">Login</v-btn>
-                        <v-spacer></v-spacer>
-                        <router-link to="/cadastro"> Ainda não tem cadastro</router-link>
-                        
+                        <v-btn color="avy blue" to="/">Cadastrar</v-btn>
                      </v-card-actions>
                   </v-card>
                </v-flex>
