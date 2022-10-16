@@ -7,7 +7,9 @@
       prominent
       src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
     >
+    
     <v-app-bar-nav-icon></v-app-bar-nav-icon>
+   
     <v-toolbar-title>Brasil Jobs <v-spacer></v-spacer>
        <v-divider></v-divider>
       <v-btn text>
@@ -25,7 +27,9 @@
      
     <v-divider vertical></v-divider>
       <v-btn text>
+        
         Fazer Cadrastro
+    
       </v-btn> 
       </v-toolbar-title> 
       <v-toolbar-items class="hidden-sm-and-down"></v-toolbar-items>
@@ -118,7 +122,9 @@
     <router-view></router-view>
     </v-card>
     </v-footer>
-    
+  
+        <v-spacer></v-spacer>
+       
     </nav>
   </div>
 </template>
@@ -156,6 +162,7 @@
         object: [
             {title: "Login", to:"/login"},
           
+          
         ]
       }
     },
@@ -191,6 +198,7 @@
     text-align: center;
   }
 
+  
 
 </style>
 
