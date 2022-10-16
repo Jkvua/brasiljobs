@@ -1,15 +1,34 @@
 <template>
   <div>
     <router-link to="/login"></router-link>
+    <router-link to="/cadastro"></router-link>
+    <v-navigation-drawer app v-model="sidebar" color="primary" white elavation="1" >
+        <v-list>
+          <v-list-item>
+            <v-list-item-action>
+              <v-icon @click.stop="sidebar = !sidebar">
+                mdi-chevron-left
+              </v-icon>
+            </v-list-item-action>
+            <v-list-item-title>
+              <h3>Menu</h3>
+            </v-list-item-title>
+            <v-btn icon small> <v-icon> mdi-chevron-left</v-icon></v-btn>
+          </v-list-item>
+          <v-divider></v-divider>
+        </v-list>
+      
+    </v-navigation-drawer>
+
+    
     <nav>
       <v-toolbar
       dark
       prominent
       src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
     >
-    
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-   
+    <v-app-bar-nav-icon @click.stop="sidebar = !sidebar"></v-app-bar-nav-icon>
+
     <v-toolbar-title>Brasil Jobs <v-spacer></v-spacer>
        <v-divider></v-divider>
       <v-btn text>
@@ -27,9 +46,8 @@
      
     <v-divider vertical></v-divider>
       <v-btn text>
-        
+        <v-list-item v-for="item of peso" :key="item.title" link :to="item.to"></v-list-item>
         Fazer Cadrastro
-    
       </v-btn> 
       </v-toolbar-title> 
       <v-toolbar-items class="hidden-sm-and-down"></v-toolbar-items>
@@ -161,9 +179,14 @@
 
         object: [
             {title: "Login", to:"/login"},
-          
-          
-        ]
+        ],
+
+        sidebar: false,
+
+        peso: [
+            {title: "Cadastro", to:"/cadastro"},
+      ],
+
       }
     },
   };
