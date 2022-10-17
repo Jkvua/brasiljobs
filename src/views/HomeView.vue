@@ -45,9 +45,8 @@
       </v-btn> 
      
     <v-divider vertical></v-divider>
-      <v-btn text>
-        <v-list-item v-for="item of peso" :key="item.title" link :to="item.to"></v-list-item>
-        Fazer Cadrastro
+      <v-btn text @click="cadastro" color="white">
+        Cadrastro
       </v-btn> 
       </v-toolbar-title> 
       <v-toolbar-items class="hidden-sm-and-down"></v-toolbar-items>
@@ -186,6 +185,12 @@
         peso: [
             {title: "Cadastro", to:"/cadastro"},
       ],
+
+      methods: {
+   async cadastro() {
+       this.$router.push({ name: "Cadastro" });
+   }
+   },
 
       }
     },

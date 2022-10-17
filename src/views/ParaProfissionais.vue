@@ -2,7 +2,7 @@
   <v-if-else>
   <div class="pa-8" fluid 
   >
-  <h1 style="text-align:center; font-family: Georgia, 'Times New Roman', Times, serif;">Vagas</h1>
+  <h1 style="text-align:center; font-family: Georgia, ">Vagas</h1>
           <v-divider></v-divider>
    <v-container>
   <v-card
@@ -273,16 +273,6 @@
                   md="4"
                 >
                   <v-text-field
-                    label="primeiro nome legal*"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col
-                  cols="12"
-                  sm="6"
-                  md="4"
-                >
-                  <v-text-field
                     label="primeiro Nome"
                     hint="letras maiuscúlas e minúsculas"
                   ></v-text-field>
@@ -317,7 +307,7 @@
                   sm="6"
                 >
                   <v-select
-                    :items="['0-17', '18-29', '30-54', '54+']"
+                    :items="['18-29', '30-54', '54+']"
                     label="Idade*"
                     required
                   ></v-select>
@@ -343,14 +333,14 @@
               text
               @click="dialog = false"
             >
-              Close
+              Fechar
             </v-btn>
             <v-btn
               color="#9ACDF6"
               text
               @click="dialog = false"
             >
-              Save
+              Salvar
             </v-btn>
           </v-card-actions>
         </v-card>
