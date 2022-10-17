@@ -1,245 +1,76 @@
 <template>
   <v-if-else>
-  <div class="pa-8" fluid 
-  >
+ 
+  
   <h1 style="text-align:center; font-family: Georgia, ">Vagas</h1>
           <v-divider></v-divider>
-   <v-container>
-  <v-card
-     class="mx-auto"
-     max-width="344"
-     color="#9ACDF6"
-     style="margin-top:10px ; margin-left:-71px ;  padding-top:1rem"
-     >
- 
-     <v-card-text>
-       <div><h1>Estamos Empregando</h1> </div>
-       <br>
-       <p class= text-h4 text--primary>
-         Analista de Projetos e Indicadores
-       </p>
-     <p>Vaga inativa</p>
-       <div class="text--primary">
-           Estamos em busca de um Analista de Projetos e Indicadores.
-       </div>
-     </v-card-text>
-     <v-card-actions>
-       <v-btn
-         text
-         color="teal accent-4"
-         @click="reveal = true"
-       >
-         Ver Mais
-       </v-btn>
-     </v-card-actions>
- 
-     <v-expand-transition>
-       <v-card
-         v-if="reveal"
-         class="transition-fast-in-fast-out v-card--reveal"
-         style="height: 100%;"
-       >
-         <v-card-text class="pb-0">
-           <p class="text-h4 text--primary">
-             Descrição da Vaga
-           </p>
-           <br>
-           <p>Dar suporte ao planejamento e implantação de projetos na área de atendimento ao cliente. Atuar em projetos que combinem processos e tecnologia, com vista a trazer a melhor experiência ao cliente.
-             Acompanhar o desenvolvimento das iniciativas e indicadores-chave do levantamento de requisitos à entrega final. </p>
-         </v-card-text>
-         <v-card-actions class="pt-0">
-           <v-btn
-             text
-             color="teal accent-4"
-             @click="reveal = false"
-           >
-             Fechar
-           </v-btn>
-         </v-card-actions>
-       </v-card>
-     </v-expand-transition>  
-   </v-card>
- </v-container>
- </div>
-      <v-divider></v-divider>
- <div>
-   <v-container>
-  <v-card
-     class="mx-auto"
-     max-width="344"
-     color="#9ACDF6"
-     style="margin-top:10px ; margin-left:-71px ;  padding-top:1rem"
-     >
- 
-     <v-card-text>
-       <div><h1> Estamos Empregando</h1></div>
-       <br>
-       <p class= text-h4 text--primary>
-         Assistente Administrativo 
-       </p>
-     <p>Vaga inativa</p>
-       <div class="text--primary">
-          Requisitos: Ensino médio ou superior incompleto, Conhecimento de sistemas e procedimentos de gerenciamento de escritório
-       </div>
-     </v-card-text>
-     <v-card-actions>
-       <v-btn
-         text
-         color="teal accent-4"
-         @click="reveal = true"
-       >
-         Ver Mais
-       </v-btn>
-     </v-card-actions>
- 
-     <v-expand-transition>
-       <v-card
-         v-if="reveal"
-         class="transition-fast-in-fast-out v-card--reveal"
-         style="height: 100%;"
-       >
-         <v-card-text class="pb-0">
-           <p class="text-h4 text--primary">
-             Descrição da Vaga
-           </p>
-           <br>
-           <p>Buscamos um assistente administrativo responsável por fornecer suporte a nossos gerentes e funcionários, auxiliar nas necessidades diárias de escritório e gerenciar as atividades administrativas gerais de nossa empresa.
-              Deve ter excelentes habilidades de comunicação oral e escrita e ser capaz de organizar seu trabalho usando ferramentas, como o MS Excel. Se também tiver experiência anterior na função e familiaridade em nosso setor, gostaríamos de conhecer você. </p>
-         </v-card-text>
-         <v-card-actions class="pt-0">
-           <v-btn
-             text
-             color="teal accent-4"
-             @click="reveal = false"
-           >
-             Fechar
-           </v-btn>
-         </v-card-actions>
-       </v-card>
-     </v-expand-transition>  
-   </v-card>
- </v-container>
- </div>
+    
+      <div>
+        <v-container>
+          <v-row>
 
-    <v-divider></v-divider>
+            <v-col cols="12" sm="11" v-for="id in Vagas" :key="id">
+              <v-card
+            class="mx-auto"
+
+            color="#9ACDF6"
+            style="margin-top:10px ; margin-left:-71px ;  padding-top:1rem"
+            >
+        
+            <v-card-text>
+            <div><h1>Estamos Empregando</h1> </div>
+            <br>
+            <p class= text-h4 text--primary>
+                jhfn,fkgfgfkgfhgkf
+            </p>
+            <p>Vaga inativa</p>
+            <div class="text--primary">
+                Estamos em busca de um Analista de Projetos e Indicadores.
+            </div>
+            </v-card-text>
+            <v-card-actions>
+            <v-btn
+                text
+                color="teal accent-4"
+                @click="reveal = true"
+            >
+                Ver Mais
+            </v-btn>
+            </v-card-actions>
+            <v-expand-transition>
+            <v-card
+            v-if="reveal"
+                class="transition-fast-in-fast-out v-card--reveal"
+                style="height: 100%;"
+            >
+                <v-card-text class="pb-0">
+                <p class="text-h4 text--primary">
+                    Descrição da Vaga
+                </p>
+                <br>
+                <p>Dar suporte ao planejamento e implantação de projetos na área de atendimento ao cliente. Atuar em projetos que combinem processos e tecnologia, com vista a trazer a melhor experiência ao cliente.
+                    Acompanhar o desenvolvimento das iniciativas e indicadores-chave do levantamento de requisitos à entrega final. </p>
+                </v-card-text>
+                <v-card-actions class="pt-0">
+                <v-btn
+                    text
+                    color="teal accent-4"
+                    @click="reveal = false"
+                >
+                    Fechar
+                </v-btn>
+                </v-card-actions>
+                        </v-card>
+                </v-expand-transition>  
+            </v-card>
+            </v-col>
+
+          </v-row>
+        
+ </v-container>  
+      </div>
+
  
-    <div>
-   <v-container>
-  <v-card
-     class="mx-auto"
-     max-width="344"
-     color="#9ACDF6"
-     style="margin-top:10px ; margin-left:-71px ;  padding-top:1rem"
-     >
- 
-     <v-card-text>
-       <div><h1>Estamos Empregando</h1></div>
-       <br>
-       <p class= text-h4 text--primary>
-          Recepsionista
-       </p>
-     <p>Vaga inativa</p>
-       <div class="text--primary">
-           Requisitos: Excelentes habilidades organizacionais e de ser multitarefa, Ensino médio, técnico ou Superior cursando
-       </div>
-     </v-card-text>
-     <v-card-actions>
-       <v-btn
-         text
-         color="teal accent-4"
-         @click="reveal = true"
-       >
-         Ver Mais
-       </v-btn>
-     </v-card-actions>
- 
-     <v-expand-transition>
-       <v-card
-         v-if="reveal"
-         class="transition-fast-in-fast-out v-card--reveal"
-         style="height: 100%;"
-       >
-         <v-card-text class="pb-0">
-           <p class="text-h4 text--primary">
-             Descrição da Vaga
-           </p>
-           <br>
-           <p>Estamos à procura de recepcionista para gerenciar nossa recepção diariamente e para executar uma variedade de tarefas administrativas que ajudem na organização de nossa empresa.
-              Como recepcionista, você será o primeiro ponto de contato: receberá os visitantes e clientes, coordenando as atividades da recepção, incluindo a distribuição de correspondências e o redirecionamento de chamadas telefônicas.  </p>
-         </v-card-text>
-         <v-card-actions class="pt-0">
-           <v-btn
-             text
-             color="teal accent-4"
-             @click="reveal = false"
-           >
-             Fechar
-           </v-btn>
-         </v-card-actions>
-       </v-card>
-     </v-expand-transition>  
-   </v-card>
- </v-container>
- </div>
-    <v-divider> </v-divider>
- <div>
-   <v-container>
-  <v-card
-     class="mx-auto"
-     max-width="344"
-     color="#9ACDF6"
-     style="margin-top:10px ; margin-left:-71px ;  padding-top:1rem"
-     >
- 
-     <v-card-text>
-       <div><h1>Estamos Empregando</h1> </div>
-       <br>
-       <p class= text-h4 text--primary>
-         Analista Financeiro
-       </p>
-     <p>Vaga inativa</p>
-       <div class="text--primary">
-           Requisitos: De 2 a 3 anos de experiência na área, Conhecimento em previsão e diagnóstico financeiro, finanças corporativas e análise de informações
-       </div>
-     </v-card-text>
-     <v-card-actions>
-       <v-btn
-         text
-         color="teal accent-4"
-         @click="reveal = true"
-       >
-         Ver Mais
-       </v-btn>
-     </v-card-actions>
- 
-     <v-expand-transition>
-       <v-card
-         v-if="reveal"
-         class="transition-fast-in-fast-out v-card--reveal"
-         style="height: 100%;"
-       >
-         <v-card-text class="pb-0">
-           <p class="text-h4 text--primary">
-             Descrição da Vaga
-           </p>
-           <br>
-           <p>Buscamos analista financeiro para fornecer informações precisas e baseadas em dados sobre a lucratividade, solvência, estabilidade e liquidez da empresa.
-                Você pesquisará e analisará informações financeiras para ajudar a empresa a tomar decisões bem informadas, redigir relatórios e monitorar movimentos financeiros. </p>
-         </v-card-text>
-         <v-card-actions class="pt-0">
-           <v-btn
-             text
-             color="teal accent-4"
-             @click="reveal = false"
-           >
-             Fechar
-           </v-btn>
-         </v-card-actions>
-       </v-card>
-     </v-expand-transition>  
-   </v-card>
- </v-container>
- </div>
 
  <div id="app">
   <v-app id="inspire">
@@ -357,14 +188,19 @@
    
  
  <script>
+
+
  
  export default {
-     data: () => ({
-      dialog: false, 
-      reveal: false,
-     }),
- 
-   }
+    data: () => ({
+        dialog: false,
+        reveal: false,
+        Vagas: [{ titulo: "Administração", id: 1,
+            }, { titulo: "Administração jlgfhgfhjgf", id: 2,
+            }, { titulo: "Administração jlgfhgfhjgf", id: 3, }, { titulo: "Administração jlgfhgfhjgf", id: 4, }, { titulo: "Administração jlgfhgfhjgf", id: 5},
+        ]
+    }),
+}
   
  </script>
  

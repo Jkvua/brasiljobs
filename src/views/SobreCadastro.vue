@@ -71,7 +71,7 @@ export default {
 .pont {
 
       text-align: center;
-      margin-left: 9.9rem;
+      margin-left: 15rem;
 }
 
 </style>
