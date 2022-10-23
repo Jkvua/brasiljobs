@@ -1,21 +1,38 @@
 <template>
   <v-if-else>
-    <h1 style="text-align: center; font-family: Georgia">Vagas</h1>
-    <v-divider></v-divider>
-
+    <v-toolbar
+      dark
+      prominent
+      src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    >
+      <v-toolbar-title
+        >Brasil Jobs <v-spacer></v-spacer>
+        <v-divider></v-divider>
+        <v-divider vertical></v-divider>
+      </v-toolbar-title>
+      <v-toolbar-items class="hidden-sm-and-down"></v-toolbar-items>
+      <v-spacer></v-spacer>
+      <v-toolbar-title
+        >Vagas Disponíveis <v-spacer></v-spacer>
+        <v-divider></v-divider>
+        <v-divider vertical></v-divider>
+      </v-toolbar-title>
+      <v-btn icon>
+        <v-icon>mdi-briefcase-outline</v-icon>
+      </v-btn>
+    </v-toolbar>
     <div>
       <v-container>
         <v-row>
-          <v-col cols="12" sm="4" v-for="(vaga, i) in vagas" :key="i">
+          <v-col cols="8" sm="4" v-for="(vaga, i) in vagas" :key="i">
             <v-card
               class="mx-auto"
-              color="#9ACDF6"
-              style="margin-top: 10px; margin-left: -71px; padding-top: 1rem"
+              color="#AAD4FF"
+              style="margin-top: 2px; margin-left: -20px; padding-top: 1rem"
             >
               <v-card-text>
                 <div><h1>Estamos Empregando</h1></div>
                 <br />
-                <p class="text-h4" text--primary>jhfn,fkgfgfkgfhgkf</p>
                 <p>Vaga inativa</p>
                 <div class="text--primary">
                   Estamos em busca de um Analista de Projetos e Indicadores.
@@ -24,9 +41,13 @@
               <v-card-actions>
                 <!--VER MAIS-->
                 <v-btn icon @click="vaga.show = !vaga.show">
-                  <v-icon>{{
-                    vaga.show ? "mdi-chevron-up" : "mdi-magnify"
-                  }}</v-icon>
+                  <v-icon>
+                    {{
+                      vaga.show
+                        ? "mdi-chevron-up"
+                        : "mdi-drag-horizontal-variant"
+                    }}</v-icon
+                  >
                 </v-btn>
               </v-card-actions>
 
@@ -54,10 +75,22 @@ export default {
     vagas: [
       { titulo: "Administração", answer: "oi1", id: 1, show: false },
       { titulo: "Administração", answer: "oi2", id: 1, show: false },
+      {
+        tilulo: "Administração",
+        answer:
+          "Dar suporte ao planejamento e implantação de projetos na área de atendimento ao cliente. Atuar em projetos que combinem processos e tecnologia, com vista a trazer a melhor experiência ao cliente. Acompanhar o desenvolvimento das iniciativas e indicadores-chave do levantamento de requisitos à entrega final.",
+        id: 2,
+        show: false,
+      },
+      { titulo: "Administração", answer: "oi2", id: 1, show: false },
+      { titulo: "Administração", answer: "oi2", id: 1, show: false },
+      { titulo: "Administração", answer: "oi2", id: 1, show: false },
+      { titulo: "Administração", answer: "oi2", id: 1, show: false },
+      { titulo: "Administração", answer: "oi2", id: 1, show: false },
+      { titulo: "Administração", answer: "oi2", id: 1, show: false },
     ],
   }),
 };
-
 </script>
 
 <style scoped></style>
