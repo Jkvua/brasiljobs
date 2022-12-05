@@ -26,7 +26,7 @@
           <h1>Criação de Currículo</h1>
         </v-card-subtitle>
         <v-card-text>
-        <Btncard :titulo="id" v-for="id in Cardapios" :key="id"></Btncard>
+        <Btncard :titulo="id" v-for="id in Curriculo" :key="id"></Btncard>
         <v-card-text>
         <v-btn color="#4DC3C8" @click.stop="formcard = !formcard">
           <v-icon>mdi-plus</v-icon>
@@ -37,6 +37,7 @@
         <v-divider></v-divider>
         <v-row>
         <v-col cols="1"></v-col>
+        
 
         <v-col cols="10">
           <v-divider color="#4DC3C8" v-show="formcard"></v-divider>
@@ -55,22 +56,17 @@
                   </v-col>
                 </v-row>
                 <v-row>
-                  <v-col cols="12" sm="4">
+                  <v-col >
                     <v-btn color="#3489FF" @click.stop="FuncAddCardapio">
-                      <v-icon>mdi-plus</v-icon> 
+                      <v-icon>mdi-plus</v-icon> Criar Currículo
                     </v-btn>
-                  </v-col>
+                    </v-col>
                   <v-col cols="12" sm="1"></v-col>
                   <v-col cols="12" sm="2">
                     <v-btn color="#3489FF" @click.stop="formcard = !formcard">
                       <v-icon>mdi-cancel</v-icon>Cancelar
                     </v-btn>
                     <v-spacer></v-spacer>
-                    <v-col >
-                    <v-btn color="#3489FF" @click.stop="FuncAddCardapio">
-                      <v-icon>mdi-plus</v-icon> Criar cardápio
-                    </v-btn>
-                    </v-col>
                   </v-col>
                 </v-row>
               </v-container>
@@ -100,10 +96,10 @@ export default {
       Comentario: "",
       Campotitulo: "",
       formcard: false,
-      Cardapios: [
+      Curriculo: [
         {
           id: 1,
-          titulo: "morte a dieta",
+          titulo: "Assistente administrativo",
         },
         {
           id: 2,
