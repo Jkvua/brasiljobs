@@ -12,11 +12,11 @@
         >
         </v-img>
       </v-col>
-      <v-col cols="2"></v-col>
+      <v-col cols="2"></v-col> 
       <v-col class="text-center">
         <v-form class="login">
           <h1 class="titlelogin">
-            LOGIN
+            LOGIN         
             <v-divider></v-divider>
           </h1>
           <v-text-field label="Email" outlined></v-text-field>

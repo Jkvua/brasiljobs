@@ -15,7 +15,7 @@
                            <v-text-field label="Nome Completo" outlined ></v-text-field>
                            <v-text-field label="Telefone" outlined></v-text-field>
                            <v-text-field label="Cidade" outlined></v-text-field>
-                           <v-text-field label="CNPJ" outlined ></v-text-field>
+                           <v-text-field label="CPF" outlined ></v-text-field>
                            <v-text-field id="password" name= "password" label="Senha" type="password" outlined 
                            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                            @click:append="show1 = !show1"></v-text-field>
