@@ -38,7 +38,7 @@
                                 <v-container>
                                     <v-row>
                                         <v-col>
-                                            <v-text-field v-model="Campotitulo" :rules="[rules.required, rules.counter]" label="Nome" counter maxlength="20">
+                                            <v-text-field v-model="Campotitulo" :rules="[rules.required, rules.counter]" label="Nome" counter maxlength="100">
                                             </v-text-field>
                                             <v-text-field v-model="Experiencias" label="Telefone" counter maxlength="9"></v-text-field>
                                             <v-text-field v-model="Telefone" label="Experiencias" counter maxlength="400"></v-text-field>

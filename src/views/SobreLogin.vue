@@ -18,38 +18,82 @@
                     <v-divider></v-divider>
                 </h1>
                 <v-text-field label="Email" v-model="user.email" outlined></v-text-field>
-                <v-text-field label="Senha" v-model="user.senha" outlined></v-text-field>
+                <v-text-field label="Senha" v-model="user.senha" outlined :type="show ? 'text' : 'password'" :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'" @click:append="show = !show"></v-text-field>
                 <v-btn @click="entrar" color="#4F94CD"> Login </v-btn>
                 <h5 class="titlecadastro">Quer experimentar? Clique abaixo</h5>
                 <v-btn @click="cadastrar" color="#4F94CD"> cadastrar </v-btn>
             </v-form>
         </v-col>
     </v-row>
-    <v-snackbar color="blue" v-model="erroEntrar" danger aria-multiline="red" timeout="5000">
+    <v-snackbar color="#F81D1D" v-model="erroEntrar" danger aria-multiline="red" timeout="5000">
         Usuário ou Senha Inválidos</v-snackbar>
+
+    <v-snackbar color="#DDE8E8" v-model="novaConta" danger aria-multiline max-width="300">
+        <v-card>
+            <v-card-title>Conta não encontrada.</v-card-title>
+            <v-card-text>
+                Deseja tentar novamente
+            </v-card-text>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="#DDE8E8" text @click="novaConta = false">Sim</v-btn>
+                <v-btn color="#DDE8E8" text @click="novaConta = false">Não</v-btn>
+            </v-card-actions>
+        </v-card>
+
+    </v-snackbar>
 </v-container>
 </template>
 
 <script>
+import * as fb from '@/plugins/firebase'
 export default {
     data() {
         return {
             user: {},
+            show: false,
             erroEntrar: false,
+            novaConta: false,
         }
     },
     methods: {
+        reset() {
+            this.user = {};
+        },
 
-        entrar() {
-            if (this.user.email === 'camila' && this.user.senha === 'camila123') {
+        async entrar() {
+            try {
+                await fb.auth.signInWithEmailAndPassword(this.user.email, this.user.senha)
                 this.$router.push({
                     name: 'Home'
-                });
-            }
-            else {
-                    this.erroEntrar = true;
+                })
+            } catch (error) {
+                const errorCode = error.code
+                switch (errorCode) {
+                    case "auth/wrong-password":
+                        this.erroEntrar = true
+                        break
+                    case "auth/invalid-email":
+                        this.erroEntrar = true
+                        this.emailInvalid = true;
+                        break
+                    case "auth/user-not-found":
+                        this.novaConta = true
+                        break
+                    default:
+                        this.erroEntrar = true
+                        break
                 }
+            }
         },
+
+        async CriarNovaConta() {
+            this.novaConta = false
+            await fb.auth.createUserWithEmailAndPassword(this.user.email, this.user.senha)
+            
+
+        },
+
         async cadastrar() {
             if (this.$router.push({
                     name: "Cadastro"
