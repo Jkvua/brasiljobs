@@ -11,8 +11,8 @@
             <v-divider></v-divider>
             <v-divider vertical></v-divider>
         </v-toolbar-title>
-        <v-btn icon>
-            <v-icon>mdi-briefcase-outline</v-icon>
+        <v-btn icon >
+            <v-icon >mdi-briefcase-outline</v-icon>
         </v-btn>
     </v-toolbar>
     <div>
@@ -65,7 +65,7 @@ export default {
         reveal: false,
         vagas: [{
                 titulo: "Administração",
-                answer: "oi1",
+                answer: "Dar suporte na contabilidade e acessoria",
                 id: 1,
                 show: false
             },

@@ -19,14 +19,13 @@
                     <v-card-subtitle>
                         <h1>Criação de Currículo</h1>
                     </v-card-subtitle>
+
                     <v-card-text>
-                        <Btncard :titulo="id" v-for="id in Curriculo" :key="id"></Btncard>
-                        <v-card-text>
-                            <v-btn color="#4DC3C8" @click.stop="formcard = !formcard">
-                                <v-icon>mdi-plus</v-icon>
-                            </v-btn>
-                        </v-card-text>
+                        <v-btn color="#4DC3C8" @click.stop="formcard = !formcard">
+                            <v-icon>mdi-plus</v-icon>
+                        </v-btn>
                     </v-card-text>
+
                 </v-card>
                 <v-divider></v-divider>
                 <v-row>
@@ -41,7 +40,7 @@
                                         <v-col>
                                             <v-text-field v-model="Campotitulo" :rules="[rules.required, rules.counter]" label="Nome" counter maxlength="20">
                                             </v-text-field>
-                                            <v-text-field v-model="Experiencias" label="Telefone" counter maxlength="80"></v-text-field>
+                                            <v-text-field v-model="Experiencias" label="Telefone" counter maxlength="9"></v-text-field>
                                             <v-text-field v-model="Telefone" label="Experiencias" counter maxlength="400"></v-text-field>
                                             <v-text-field v-model="fmc" label="Formação" counter maxlength="80"></v-text-field>
                                             <v-text-field v-model="descform" label="Breve descrição de sua Formação" counter maxlength="230"></v-text-field>
@@ -49,11 +48,11 @@
                                     </v-row>
                                     <v-row>
                                         <v-col>
-                                            <v-btn color="#3489FF" @click.stop="FuncAddCardapio">
+                                            <v-btn color="#3489FF" @click.stop="FuncAddCurriculo">
                                                 <v-icon>mdi-plus</v-icon> Criar Currículo
                                             </v-btn>
                                         </v-col>
-
+                                        <v-col cols="12" sm="1"></v-col>
                                         <v-col cols="12" sm="2">
                                             <v-btn color="#3489FF" @click.stop="formcard = !formcard">
                                                 <v-icon>mdi-cancel</v-icon>Cancelar
@@ -82,6 +81,9 @@
                     <v-card-text>
                         <Btncard :titulo="id" v-for="id in Curriculo" :key="id"></Btncard>
                     </v-card-text>
+                    <v-card-text>
+                        <CriacaoCurriculo :titulo="id" v-for="id in Curriculo" :key="id"></CriacaoCurriculo>
+                    </v-card-text>
                 </v-card>
             </v-col>
             <v-col cols="1"></v-col>
@@ -106,11 +108,15 @@ export default {
             formcard: false,
             Curriculo: [{
                     id: 1,
-                    titulo: "Assistente administrativo",
+                    titulo: "Currículo para vaga de gerente administrativa",
                 },
                 {
                     id: 2,
-                    titulo: "era so uma fritura",
+                    titulo: "Currículo para vaga de professor substituto",
+                },
+                {
+                    id: 3,
+                    titulo: "Currículo para vaga de engenheiro de software",
                 },
             ],
             rules: {
@@ -118,7 +124,12 @@ export default {
                 counter: (value) => value.length <= 20 || "Max 20 caracteres",
             },
             methods: {
-                FuncAddCardapio() {
+                entrarCard() {
+                    this.$router.push({
+                        name: "Curriculo"
+                    });
+                },
+                FuncAddCurriculo() {
                     if (this.Campotitulo) {
                         this.Curriculo.push({
                             titulo: this.Campotitulo,
@@ -130,11 +141,15 @@ export default {
                     this.fmc = "";
                     this.descform = "";
                 },
+
+       
             },
         }
 
     },
- components: { CriacaoCurriculo },
+    components: {
+        CriacaoCurriculo
+    },
 };
 </script>
 

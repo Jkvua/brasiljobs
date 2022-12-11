@@ -5,6 +5,7 @@ import SobreLogin from '../views/SobreLogin.vue'
 import SobreCadastro from '../views/SobreCadastro.vue'
 import ParaProfissionais from '../views/ParaProfissionais.vue'
 import ParaEmpresas from '../views/ParaEmpresas.vue'
+import CurriculoCriando from '../views/CurriculoCriando.vue'
 
 
 Vue.use(VueRouter)
@@ -34,7 +35,13 @@ const routes = [
     path:'/empresas',
     name: 'Empresas',
     component: ParaEmpresas
-  }
+  },
+  {
+    path:'/curriculo',
+    name: 'Curriculo',
+    component: CurriculoCriando
+  },
+  
 ]
 
 const router = new VueRouter({

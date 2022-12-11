@@ -15,20 +15,16 @@
             </v-list-item>
             <v-divider></v-divider>
         </v-list>
-        <v-list-item>
+
+        <v-list-item v-for="verba of verbas" :key="verba.title" link :to="verba.to">
             <v-list-item-avatar>
-                <v-icon>mdi-file-document-plus-outline</v-icon>
+                <v-icon>{{verba.icon}}</v-icon>
             </v-list-item-avatar>
-            <v-list-item-content>Criar Curriculo</v-list-item-content>
+            <v-list-item-content>{{verba.title}}</v-list-item-content>
         </v-list-item>
+
         <v-divider></v-divider>
-        <v-list-item>
-            <v-list-item-avatar>
-                <v-icon>mdi-inbox-full-outline</v-icon>
-            </v-list-item-avatar>
-            <v-list-item-content>Ver Curriculo</v-list-item-content>
-        </v-list-item>
-        <v-divider></v-divider>
+
     </v-navigation-drawer>
 
     <nav>
@@ -56,10 +52,8 @@
             <v-toolbar-items class="hidden-sm-and-down"></v-toolbar-items>
             <v-spacer></v-spacer>
             <v-btn icon>
-                <v-icon>mdi-magnify</v-icon>
-            </v-btn>
-            <v-btn icon>
                 <v-icon>mdi-export</v-icon>
+                
             </v-btn>
         </v-toolbar>
         <br />
@@ -147,6 +141,16 @@ export default {
                 to: "/profissionais"
             }],
 
+            verbas: [{
+                title: "Criar Currículo",
+                icon: "mdi-file-document-plus-outline",
+                to: "/empresas"
+            }, {
+                title: "Ver Curriculo",
+                icon: "mdi-file-document",
+                to: "/curriculo"
+            }, ],
+
             sidebar: false,
 
             methods: {
@@ -156,6 +160,7 @@ export default {
                     });
                 },
             },
+
         };
     },
 };

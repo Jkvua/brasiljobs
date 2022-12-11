@@ -1,7 +1,7 @@
 <template>
 <div class="CriacaoCurriculo">
-    <v-btn color="#4DC3C8" @click="entrarCard">
-        <v-icon>mdi-food-apple</v-icon>{{titulo.titulo}}
+    <v-btn color="#A2DFE1" @click="entrarCard">
+        <v-icon>mdi-file-document-plus-outline</v-icon> <v-divider></v-divider> {{titulo.titulo}}
     </v-btn>
 </div>
 </template>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped>
-.btncard {
+.CriacaoCurriculo {
     margin: 5px 0;
 }
 </style>

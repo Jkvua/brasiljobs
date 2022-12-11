@@ -17,30 +17,45 @@
                     LOGIN
                     <v-divider></v-divider>
                 </h1>
-                <v-text-field label="Email" outlined></v-text-field>
-                <v-text-field label="Senha" outlined></v-text-field>
+                <v-text-field label="Email" v-model="user.email" outlined></v-text-field>
+                <v-text-field label="Senha" v-model="user.senha" outlined></v-text-field>
                 <v-btn @click="entrar" color="#4F94CD"> Login </v-btn>
                 <h5 class="titlecadastro">Quer experimentar? Clique abaixo</h5>
                 <v-btn @click="cadastrar" color="#4F94CD"> cadastrar </v-btn>
             </v-form>
         </v-col>
     </v-row>
+    <v-snackbar color="blue" v-model="erroEntrar" danger aria-multiline="red" timeout="5000">
+        Usuário ou Senha Inválidos</v-snackbar>
 </v-container>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            user: {},
+            erroEntrar: false,
+        }
+    },
     methods: {
+
+        entrar() {
+            if (this.user.email === 'camila' && this.user.senha === 'camila123') {
+                this.$router.push({
+                    name: 'Home'
+                });
+            }
+            else {
+                    this.erroEntrar = true;
+                }
+        },
         async cadastrar() {
-            this.$router.push({
-                name: "Cadastro"
-            });
+            if (this.$router.push({
+                    name: "Cadastro"
+                }));
         },
-        async entrar() {
-            this.$router.push({
-                name: "Home"
-            });
-        },
+
     },
 };
 </script>
