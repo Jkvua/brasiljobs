@@ -79,10 +79,10 @@
                         <h2>Currículos</h2>
                     </v-card-title>
                     <v-card-text>
-                        <Btncard :titulo="id" v-for="id in Curriculo" :key="id"></Btncard>
+                        <CriacaoCurriculo :titulo="id" v-for="id in Curriculo" :key="id"></CriacaoCurriculo>
                     </v-card-text>
                     <v-card-text>
-                        <CriacaoCurriculo :titulo="id" v-for="id in Curriculo" :key="id"></CriacaoCurriculo>
+                        <Btncard :titulo="id" v-for="id in Curriculo" :key="id"></Btncard>
                     </v-card-text>
                 </v-card>
             </v-col>
@@ -95,16 +95,16 @@
 
 <script>
 import CriacaoCurriculo from "@/components/CriacaoCurriculo.vue";
-
+import * as fb from '@/plugins/firebase';
 export default {
     data() {
         return {
+            Campotitulo: "",
             descform: "",
             fmc: "",
             Telefone: "",
             Experiencias: "",
             Comentario: "",
-            Campotitulo: "",
             formcard: false,
             Curriculo: [{
                     id: 1,
@@ -121,7 +121,7 @@ export default {
             ],
             rules: {
                 required: (value) => !!value || "obrigatório",
-                counter: (value) => value.length <= 20 || "Max 20 caracteres",
+                counter: (value) => value.length <= 20 || "Max 100 caracteres",
             },
             methods: {
                 entrarCard() {
@@ -129,19 +129,34 @@ export default {
                         name: "Curriculo"
                     });
                 },
-                FuncAddCurriculo() {
-                    if (this.Campotitulo) {
-                        this.Curriculo.push({
-                            titulo: this.Campotitulo,
-                        });
-                    }
-                    this.Campotitulo = "";
-                    this.Experiencias = "";
-                    this.Telefone = "";
-                    this.fmc = "";
-                    this.descform = "";
-                },
-
+                async FuncAddCardapio() {
+      this.Cardapios.EstaAtivo = false;
+      if (this.Cardapios.Campotitulo == null || this.Cardapios.Campotitulo == '') {
+        this.invalidInfo = false
+        this.alertInvalidInfo = true
+      }
+      else {
+        this.invalidInfo = true
+      }
+      if (this.invalidInfo == true) {
+        this.uid = fb.auth.currentUser.uid;
+        const res = await fb.CardapioCollection.add({
+          DonoCardapio: this.uid,
+          NomeCardapio: this.Cardapios.Campotitulo,
+          ComentarioCardapio: this.Cardapios.Comentario,
+          Estaativo: this.Cardapios.EstaAtivo,
+          NumeroRefs: 0
+        });
+        const idCardapio = res.id
+        await fb.CardapioCollection.doc(idCardapio).update({
+          idCardapio: idCardapio
+        })
+      }
+      this.puxarcardapios();
+      this.Cardapios.Campotitulo = "";
+      this.Cardapios.Comentario = "";
+      this.formcard = false;
+    },
        
             },
         }
@@ -149,7 +164,7 @@ export default {
     },
     components: {
         CriacaoCurriculo
-    },
+},
 };
 </script>
 

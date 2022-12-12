@@ -14,7 +14,7 @@
     </v-toolbar>
     <v-container class="maria">
         <v-col cols="1"></v-col>
-        <v-col cols="7">
+        <v-col cols="10">
             <v-card>
                 <v-div>
                     <v-card color="#DDE8E8">

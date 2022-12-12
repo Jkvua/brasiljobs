@@ -27,7 +27,7 @@
                             <br />
                             <p>Vaga inativa</p>
                             <div class="text--primary">
-                                Estamos em busca de um Analista de Projetos e Indicadores.
+                                Estamos em busca de empregandos capacitados.
                             </div>
                         </v-card-text>
                         <v-card-actions>
@@ -54,6 +54,14 @@
                 </v-col>
             </v-row>
         </v-container>
+        <v-spacer></v-spacer>
+            <v-card>
+                <v-card-subtitle class="pedro">
+                    Se inscreva em uma vaga!
+                    <v-btn icon><v-icon>mdi-chevron-up</v-icon></v-btn>
+                </v-card-subtitle>
+              
+            </v-card>
     </div>
 </v-if-else>
 </template>
@@ -122,4 +130,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.pedro{
+    font-style: unset;
+    color: aquamarine;
+    text-align: center;
+}
+
+
+</style>
